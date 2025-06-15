@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rym3icsh77h"]
+
+[ext_resource type="Script" uid="uid://yssgsh3yhw55" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://c7736m3kewfta" path="res://Models/Plane/source/LowPolyPlane01.FBX" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://b5x3ossx48jf4" path="res://Scripts/camera_controller.gd" id="3_6t5aa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0iea"]
+size = Vector3(1, 0.438126, 1.75293)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("model_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_cvnsp")
+speed = 15.0
+rotacion_speed = 1.5
+weight_interpolated = 8.0
+model_player = NodePath("LowPolyPlane01")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0306778, -0.00634766)
+shape = SubResource("BoxShape3D_v0iea")
+
+[node name="LowPolyPlane01" parent="." instance=ExtResource("1_v0iea")]
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(0.999633, -0.0190855, -0.019243, 0.0195302, 0.99954, 0.0231917, 0.0187915, -0.023559, 0.999546, 0, 0, 0)
+script = ExtResource("3_6t5aa")
+weight_interpolated = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(-1, -2.24099e-09, -8.00937e-08, 2.61934e-10, 1, -7.45058e-09, 8.56817e-08, -3.72529e-09, -1, 0, 1.87984, -8.04395)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf6k6cfpval4c"]
+
+[ext_resource type="ArrayMesh" uid="uid://8ckyer1k82mr" path="res://Models/MapTest/City1 Block 1.obj" id="2_bemsw"]
+[ext_resource type="PackedScene" uid="uid://b2rym3icsh77h" path="res://Scenes/player.tscn" id="2_k8rg2"]
+
+[sub_resource type="Environment" id="Environment_k8rg2"]
+background_mode = 1
+background_color = Color(0, 0.545098, 0.678431, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="TESTINGS" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_k8rg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.6494, -69.5467)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k8rg2")
+
+[node name="City1Block1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.74552, 0, -2.39783)
+mesh = ExtResource("2_bemsw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 78.6133, 0)
